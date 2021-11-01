@@ -1,13 +1,73 @@
 .App {
   text-align: center;
+  background-color: #b8b8b8b6;
 }
 
-.header div{
+.header div {
+  height: 7vh;
   display: flex;
   justify-content: center !important;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-family: Gill !important;
   font-size: 1.5rem !important;
+}
+
+.sidebar {
+  box-shadow: 5px 0px 2px #b8b8b8b6;
+  padding: 2vw;
+  text-align: left;
+  height: 100%;
+}
+
+h5{
+  font-weight: 300 !important;
+}
+
+.set {
+  margin-top: 4vh;
+}
+
+.row {
+  --bs-gutter-x: 0rem !important;
+}
+
+.tabed {
+  padding-left: 10px;
+}
+
+.tabed p{
+  padding: 10px;
+  font-family: Helvetica;
+}
+
+
+.tabed p .counts{
+  font-size: xx-small;
+  position: absolute;
+  min-width: 15px;
+  margin-left: 10px;
+}
+
+.tabed p:hover{
+  padding-left: 15px;
+  background-color: #dfdfdfe7;
+  border-radius: 5px;
+}
+
+.card{
+  padding: 1vh;
+  flex-direction: row !important;
+}
+
+.col-5 {
+  flex: 1 1 !important;
+}
+
+.card-body{
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
