@@ -14,7 +14,7 @@ export default class Books extends React.Component {
             className="mb-2 text-muted"
             tag="h6"
           >
-            Emmanuel Adesina, Oladayo Oluwadara
+            {this.props.authors}
           </CardSubtitle>
           <CardText>
             {this.props.shortDescription}

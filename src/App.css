@@ -58,6 +58,7 @@ h5{
 
 .card{
   padding: 1vh;
+  margin: 2vh;
   flex-direction: row !important;
 }
 
@@ -65,9 +66,24 @@ h5{
   flex: 1 1 !important;
 }
 
+.card-title{
+  font-size: 1.5rem !important;
+}
+
 .card-body{
   text-align: left;
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+
+.card-text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 300;
+  display: -webkit-box;
+  line-height: 22px;     /* fallback */
+  max-height: 88px;      /* fallback */
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

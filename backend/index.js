@@ -7,9 +7,6 @@ const app = express()
 const { MongoClient } = require('mongodb');
 const uri = process.env.MONGO_URI
 
-// This help convert the id from string to ObjectId for the _id.
-//const ObjectId = require("mongodb").ObjectId;
-
 const PORT = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
@@ -45,7 +42,6 @@ const collection = client.db("sample_books").collection("book_details")
 })
 
 app.get('/books', (req, res)=>{
-
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true , connectTimeoutMS: 50000, keepAlive: 1});
   const collection = client.db("sample_books").collection("book_details")
   client.connect(err => {
@@ -54,11 +50,21 @@ app.get('/books', (req, res)=>{
       res.json(result);
     });
   })
+})
 
+
+app.get('/getCategories/:categories', (req, res)=>{
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true , connectTimeoutMS: 50000, keepAlive: 1});
+  const collection = client.db("sample_books").collection("book_details")
+  client.connect(err => {
+    collection.find({'categories':`${req.params.categories}`}).toArray((err, result) => {
+      if (err) throw err;
+      res.json(result);
+    });
+  })
 })
 
 app.get('/add', (req, res)=>{
-
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true , connectTimeoutMS: 50000, keepAlive: 1});
 const collection = client.db("sample_books").collection("book_details")
   collection.insertMany([], (err,success)=>{
@@ -70,7 +76,6 @@ const collection = client.db("sample_books").collection("book_details")
 app.get('/search/:keyword', (req, res)=>{
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true , connectTimeoutMS: 50000, keepAlive: 1});
 const collection = client.db("sample_books").collection("book_details")
-
   let query = req.params.keyword
   let words = query.split(" ")
   words.forEach(i =>{

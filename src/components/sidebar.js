@@ -16,6 +16,10 @@ export default class SideBar extends React.Component{
     })
   }
 
+  categoriesClicked=(which)=>{
+    this.props.categoriesSelect(which)
+  }
+
   render(){
     return(
       <div className='sidebar'>
@@ -35,7 +39,7 @@ export default class SideBar extends React.Component{
           <div className='tabed'>
             {this.state.categories.map((item,i)=>{
               return(
-                <p key={i} onClick={()=> alert(`${item._id} Clicked`) }> {item._id} <Badge className='counts' color='danger'> {item.count} </Badge></p>
+                <p key={i} onClick={ ()=>this.categoriesClicked(item._id) }> {item._id} <Badge className='counts' color='danger'> {item.count} </Badge></p>
               )
             })}
           </div>
